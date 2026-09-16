@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh‑CN">
+<head>
+<meta charset="UTF‑8">
+<meta name="viewport" content="width=device‑width, initial‑scale=1.0">
+<title>PDF轻量工具箱｜购买完成</title>
+<style>
+*{box‑sizing:border‑box;margin:0;padding:0;font‑family:"Microsoft Yahei",sans‑serif;}
+body{background:#f5f7fa;padding:40px 20px;color:#333;}
+.box{max‑width:600px;margin:0 auto;background:#fff;padding:32px;border‑radius:12px;box‑shadow:0 2px 12px #00000014;}
+h1{font‑size:22px;margin‑bottom:16px;color:#1f2937;}
+.tip{color:#666;margin‑bottom:24px;line‑height:1.6;}
+.code‑block{background:#f3f4f6;padding:16px;border‑radius:8px;font‑family:Consolas,monospace;font‑size:18px;letter‑spacing:2px;margin:16px 0;border:1px solid #e5e7eb;}
+.btn‑copy{background:#2563eb;color:#fff;border:none;padding:10px 20px;border‑radius:6px;cursor:pointer;font‑size:15px;}
+.info{margin‑top:24px;padding‑top:20px;border‑top:1px solid #eee;color:#555;font‑size:14px;line‑height:1.7;}
+</style>
+</head>
+<body>
+<div class="box">
+    <h1>✅ 付款成功</h1>
+    <div class="tip">请复制下方授权码，回到PDF轻量工具箱软件，打开【关于】页面进行激活。</div>
+
+    <div class="code‑block" id="licenseCode">
+        等待加载授权码...
+    </div>
+    <button class="btn‑copy" onclick="copyCode()">复制授权码</button>
+
+    <div class="info">
+        <p><strong>激活步骤：</strong></p>
+        <p>1.复制上面授权码</p>
+        <p>2.打开PDF轻量工具箱 → 【关于】</p>
+        <p>3.粘贴授权码，点击激活</p>
+        <br>
+        <p>激活失败、未收到授权码，请联系客服：pdfsupport@163.com</p>
+        <p>本授权为单机终身买断，仅限一台设备使用。</p>
+    </div>
+</div>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const code = urlParams.get('license_code');
+if(code){
+    document.getElementById("licenseCode").innerText = code;
+}else{
+    document.getElementById("licenseCode").innerText = "授权码缺失，请核对支付订单";
+}
+function copyCode(){
+    const text=document.getElementById("licenseCode").innerText.trim();
+    navigator.clipboard.writeText(text).then(()=>{alert("已复制授权码");})
+}
+</script>
+</body>
+</html>
